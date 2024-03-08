@@ -79,20 +79,45 @@ public class CustomListTest {
 
         // 4) delete a city
 
-        list.delete(city1);
+        list.deleteCity(city1);
 
         // 5) check if deleted: has the city? (no) size equals prev size -1? (yes)
         assertFalse(list.hasCity(city1)); // should be false -> assert passes
         assertEquals(listSize-1,list.getCount()); // should be equal -> assert passes
     }
 
-    // extra test for delete, checks exception throw
+    /**
+     *     extra test for delete, checks exception throw
+      */
     @Test
     void deleteExceptionTest() {
         list= MockCityList();
         City city = new City("Yellowknife", "Northwest Territories");
         assertThrows(IllegalArgumentException.class, () -> {
-            list.delete(city); });
+            list.deleteCity(city); });
+    }
+
+    /**
+     * test count cities
+     */
+    @Test
+    void countCitiesTest() {
+        // make mock city list
+        list = MockCityList();
+        // get starting count
+        int listSize = list.getCount();
+
+        // test 1: starting count is equal
+        assertEquals(listSize, list.countCities());
+        City city = new City("Yellowknife", "Northwest Territories");
+
+        // test 2: after adding,it is valid.
+        list.addCity(city);
+        assertEquals(listSize+1, list.countCities());
+
+        // test 3: after deleting, still valid
+        list.deleteCity(city);
+        assertEquals(listSize, list.countCities());
     }
 
 }

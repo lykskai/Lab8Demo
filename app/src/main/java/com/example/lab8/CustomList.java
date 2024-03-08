@@ -1,7 +1,6 @@
 package com.example.lab8;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,7 +83,7 @@ public class CustomList extends ArrayAdapter<City> {
      * @param city to delete
      @throws IllegalArgumentException If the city to be deleted does not exist
      */
-    public void delete(City city) {
+    public void deleteCity(City city) {
         if (cities.contains(city)) {
             // delete
             cities.remove(city);
@@ -93,4 +92,10 @@ public class CustomList extends ArrayAdapter<City> {
             throw new IllegalArgumentException();
         }
     }
+
+    /**
+     * This will return a count of how many cities are in the list.
+     * @return integer, representing the amount of cities in the list
+     */
+    public int countCities() {}
 }
