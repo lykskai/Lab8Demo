@@ -7,14 +7,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 //import org.junit.Before;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
 public class CustomListTest {
 
-    private CustomList list; /**
+    private CustomList list;
+    /**
      * create a mocklist for my citylist * @return
      */
     public CustomList MockCityList(){
@@ -45,16 +45,18 @@ public class CustomListTest {
      */
 
     @Test
-    void testHasCity() {
+    void hasCityTest() {
         // Make a mock city
         list = MockCityList();
+
+
 
         // make the cities
         City cityToAdd = new City("Yellowknife", "Northwest Territories");
         City cityNotAdded = new City("City", "Province");
 
         // add only one
-        list.add(cityToAdd);
+        list.addCity(cityToAdd);
         assertTrue(list.hasCity(cityToAdd)); // should be true
         assertFalse(list.hasCity(cityNotAdded)); // should be false
     }

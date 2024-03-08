@@ -1,6 +1,7 @@
 package com.example.lab8;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,11 +63,20 @@ public class CustomList extends ArrayAdapter<City> {
 
     //Lab 8 implementation
     /**
-     *  checks if the city is present in the city list
-     * @return true if present
-     * @return false if absent
+     * This checks if a city is present in the cityList
+     * @param city
+     * @return true If city is present, false if city is absent.
      */
+    public boolean hasCity(City city) {
 
-    public boolean hasCity(City city) {}
+        // Iterate through city list, see if there are matches
+
+        for (City iteratedCity : cities) {
+            if (city.getCityName().equals(iteratedCity.getCityName())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 }
