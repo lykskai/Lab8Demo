@@ -73,12 +73,14 @@ public class CustomListTest {
         City city1 = new City("Yellowknife", "Northwest Territories");
         list.addCity(city1);
 
-        // 3) get current list count
+        // 3) get current list count (before deletion)
         int listSize = list.getCount();
 
         // 4) delete a city
 
         list.delete(city1);
+
+        // 5) check if deleted: has the city? (no) size equals prev size -1? (yes)
         assertFalse(list.hasCity(city1)); // should be false -> assert passes
         assertEquals(listSize-1,list.getCount()); // should be equal -> assert passes
     }
