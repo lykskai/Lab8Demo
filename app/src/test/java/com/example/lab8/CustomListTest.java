@@ -49,16 +49,38 @@ public class CustomListTest {
         // Make a mock city
         list = MockCityList();
 
-
-
         // make the cities
         City cityToAdd = new City("Yellowknife", "Northwest Territories");
         City cityNotAdded = new City("City", "Province");
 
         // add only one
         list.addCity(cityToAdd);
-        assertTrue(list.hasCity(cityToAdd)); // should be true
-        assertFalse(list.hasCity(cityNotAdded)); // should be false
+        assertTrue(list.hasCity(cityToAdd)); // should be true -> assert passes
+        assertFalse(list.hasCity(cityNotAdded)); // should be false -> assert passes
+    }
+
+    /**
+     * test the delete functionality
+     */
+
+    @Test
+    void deleteTest() {
+        // 1) make a mock list
+        list  = MockCityList();
+
+        // 2) add a city
+
+        City city1 = new City("Yellowknife", "Northwest Territories");
+        list.addCity(city1);
+
+        // 3) get current list count
+        int listSize = list.getCount();
+
+        // 4) delete a city
+
+        list.delete(city1);
+        assertFalse(list.hasCity(city1)); // should be false -> assert passes
+        assertEquals(listSize-1,list.getCount()); // should be equal -> assert passes
     }
 
 
