@@ -97,5 +97,11 @@ public class CustomList extends ArrayAdapter<City> {
      * This will return a count of how many cities are in the list.
      * @return integer, representing the amount of cities in the list
      */
-    public int countCities() {}
+    public int countCities() {
+        int count = 0;
+        for (City city : this.cities) {
+            count++;
+        }
+        return count;
+    }
 }
